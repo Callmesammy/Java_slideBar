@@ -11,21 +11,20 @@ import net.miginfocom.swing.MigLayout;
 public class ListMenu extends javax.swing.JPanel {
 
    private final MigLayout layout;
-   private final JPanel panel;
-   private JLabel label;
+     JPanel panel = new JPanel();
+ 
            
     public ListMenu(Font font, String text) {
         initComponents();
-        layout = new MigLayout("fliix", "0[fill]0", "0[]0");
-        setLayout(layout);
-        panel = new JPanel();
+        layout = new MigLayout("fillx", "0[fill]0", "0[]0");
         panel.setLayout(new MigLayout("fillx, filly"));
-        label = new JLabel("enter ur details");
-        label.setFont(new Font("sansseri", 1,12));
-        label.setForeground(new Color(60,60,60));
-        panel.setBackground(new Color(255,255,255));
-        panel.add(label);
-        this.add(panel, "w 100%, 40%"); 
+        setLayout(layout);
+        JLabel lb = new JLabel(text);
+        lb.setFont(font);
+        lb.setForeground(new Color(60,60,60));
+        panel.setBackground(Color.white);
+        panel.add(lb);
+        this.add(panel, "h 40%, w 100%");
         
     }
 
