@@ -26,6 +26,9 @@ public class Header extends javax.swing.JPanel {
         this.add(panel, " w 100%, h 40%");
     }
    
+    public void getColor (Color colx){
+        panel.setBackground(colx);
+    }
   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
