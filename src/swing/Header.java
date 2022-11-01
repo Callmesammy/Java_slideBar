@@ -1,5 +1,5 @@
 
-package java_slidebar;
+package swing;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -7,29 +7,26 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import net.miginfocom.swing.MigLayout;
 
-/**
- *
- * @author user
- */
-public class ListSlider extends javax.swing.JPanel {
 
-    private MigLayout mig;
+public class Header extends javax.swing.JPanel {
+
+    private MigLayout layout;
     private JPanel panel = new JPanel();
-    public ListSlider(Font font, String strng) {
+   
+    public Header(Font font, String str) {
         initComponents();
-        mig = new MigLayout("fillx","0[fill]0","[]");
-        setLayout(mig);
+        layout = new MigLayout("fillx", "0[fill]0", "0[]0");
+        setLayout(layout);
         panel.setLayout(new MigLayout("fillx, filly"));
-        JLabel label = new JLabel(strng);
+        JLabel label = new JLabel(str);
         label.setFont(font);
-        label.setForeground(new Color(44,44,44));
-        panel.setBackground(new Color(210,210,210));
+        label.setForeground(new Color(40,40,40));
+        panel.setBackground(new Color(255,255,255));
         panel.add(label);
         this.add(panel, " w 100%, h 40%");
-        
     }
-
    
+  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -42,7 +39,7 @@ public class ListSlider extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 36, Short.MAX_VALUE)
+            .addGap(0, 34, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
