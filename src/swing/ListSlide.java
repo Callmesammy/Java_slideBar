@@ -3,6 +3,11 @@ package swing;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import net.miginfocom.swing.MigLayout;
@@ -10,12 +15,20 @@ import net.miginfocom.swing.MigLayout;
 
 public class ListSlide extends javax.swing.JPanel {
 
+    /**
+     * @return the deleted
+     */
+   
    // adding of Miglayout in other to set the dimensions 
     
     private MigLayout layout;
     private JPanel panel = new JPanel();
+    private boolean deleted;
+    
+    private Image image;
     
     public ListSlide(Font font, String str) {
+        image = new ImageIcon(getClass().getResource("/image/pic/icont.png")).getImage();
         initComponents();
         layout = new MigLayout("fillx", "0[fill]0", "0[]0");
         setLayout(layout);
@@ -40,6 +53,18 @@ public class ListSlide extends javax.swing.JPanel {
               setBackground(new Color(65, 6, 75));
         }
     }
+    
+     public boolean isDeleted() {
+        return deleted;
+    }
+
+    /**
+     * @param deleted the deleted to set
+     */
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
+    }
+
     @SuppressWarnings("unchecked")
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -56,6 +81,24 @@ public class ListSlide extends javax.swing.JPanel {
             .addGap(0, 37, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g); 
+        Graphics2D g2 = (Graphics2D)g;
+        // for smoot image for the graphics to be added
+        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        if (deleted) {
+        g2.drawImage(image, getWidth() -33,7,25,25, this);
+        g2.setColor(Color.white);
+        g2.setFont(new Font("sansserif", 1,9));
+        g2.drawString("Boxer", getWidth() -36, 36);
+     
+        }else{
+            
+        }
+       
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
