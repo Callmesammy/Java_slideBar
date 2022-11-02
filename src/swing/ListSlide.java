@@ -25,7 +25,7 @@ public class ListSlide extends javax.swing.JPanel {
         label.setForeground(new Color(210,110,115));
         panel.add(label);
         panel.setBackground(new Color(255,255,255));
-        this.add(panel, "w 100%, h 40");
+        this.add(panel, "h 40%, w 100%");
     }
 
     public void addColor (Color colex){
@@ -33,9 +33,15 @@ public class ListSlide extends javax.swing.JPanel {
     }
    
     public void moveX(int x){
-        layout.setComponentConstraints(panel, "x " +x+ ", w 100%, h 40");
+        layout.setComponentConstraints(panel, "x " +x+ ", h 40, w 100%");
+        if (x < 0) {
+            setBackground(new Color(246, 23, 23));
+        }else{
+              setBackground(new Color(65, 6, 75));
+        }
     }
     @SuppressWarnings("unchecked")
+    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
