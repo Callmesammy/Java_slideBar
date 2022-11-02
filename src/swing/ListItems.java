@@ -60,7 +60,7 @@ public class ListItems<E extends Object> extends JList<E>{
         @Override
         public void mouseDragged(MouseEvent e) {
             if (selectedIndex != -1) {
-                x = e.getX()-1;
+                mx = e.getX()-x;
                 repaint();
                 
             }
@@ -77,7 +77,7 @@ public class ListItems<E extends Object> extends JList<E>{
                 ListSlide slide = new ListSlide(ListItems.this.getFont(),isSelected+ "");
                 if (selectedIndex == index) {
                     slide.addColor(getClx());
-                    slide.moveX(x);
+                    slide.moveX(mx);
                 }
                 return slide;
             }

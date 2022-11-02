@@ -25,7 +25,7 @@ public class ListSlide extends javax.swing.JPanel {
         label.setForeground(new Color(210,110,115));
         panel.add(label);
         panel.setBackground(new Color(255,255,255));
-        this.add(panel, "h 40%, w 100%");
+        this.add(panel, "h 40, w 100%");
     }
 
     public void addColor (Color colex){
