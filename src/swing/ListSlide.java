@@ -32,6 +32,9 @@ public class ListSlide extends javax.swing.JPanel {
         panel.setBackground(colex);
     }
    
+    public void moveX(int x){
+        layout.setComponentConstraints(panel, "x " +x+ ", w 100%, h 40");
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
