@@ -34,6 +34,7 @@ public class ListItems<E extends Object> extends JList<E>{
     private int x;
     private int mx;
     private Color clx;
+    private int modelInt =-50;
     
     public ListItems() {
     clx = new Color(130,225,131);
@@ -76,8 +77,12 @@ public class ListItems<E extends Object> extends JList<E>{
             public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 ListSlide slide = new ListSlide(ListItems.this.getFont(),isSelected+ "");
                 if (selectedIndex == index) {
+                    if (mx<=modelInt) {
+                        mx = modelInt;
+                    }
                     slide.addColor(getClx());
                     slide.moveX(mx);
+                    slide.setDeleted(mx<=modelInt);
                 }
                 return slide;
             }

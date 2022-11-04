@@ -26,9 +26,11 @@ public class ListSlide extends javax.swing.JPanel {
     private boolean deleted;
     
     private Image image;
+    private Image imagee;
     
     public ListSlide(Font font, String str) {
         image = new ImageIcon(getClass().getResource("/image/pic/icont.png")).getImage();
+        imagee = new ImageIcon(getClass().getResource("/image/pic/name.png")).getImage();
         initComponents();
         layout = new MigLayout("fillx", "0[fill]0", "0[]0");
         setLayout(layout);
@@ -88,14 +90,16 @@ public class ListSlide extends javax.swing.JPanel {
         Graphics2D g2 = (Graphics2D)g;
         // for smoot image for the graphics to be added
         g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-        if (deleted) {
+        if (isDeleted()) {
         g2.drawImage(image, getWidth() -33,7,25,25, this);
         g2.setColor(Color.white);
         g2.setFont(new Font("sansserif", 1,9));
         g2.drawString("Boxer", getWidth() -36, 36);
-     
         }else{
-            
+        g2.drawImage(imagee, getWidth() -33,7,25,25, this);
+        g2.setColor(Color.gray);
+        g2.setFont(new Font("sansserif", 1,9));
+        g2.drawString("Boxer", getWidth() -36, 36);
         }
        
     }
