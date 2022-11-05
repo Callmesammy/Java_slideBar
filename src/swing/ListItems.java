@@ -7,8 +7,10 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import javax.swing.DefaultListCellRenderer;
+import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
+import javax.swing.ListModel;
 
 /**
  *
@@ -21,9 +23,12 @@ public class ListItems<E extends Object> extends JList<E>{
     private int x;
     private int mx;
     private Color clx;
-    private final int sanTex =-50;
+    private final int sanTex = -50;
+    private final DefaultListModel model;
     
     public ListItems() {
+        model = new DefaultListModel();
+        super.setModel(model);
     clx = new Color(130,225,131);
         addMouseListener(new MouseAdapter() {
         @Override
@@ -38,6 +43,10 @@ public class ListItems<E extends Object> extends JList<E>{
 
         @Override
         public void mouseReleased(MouseEvent e) {
+            if (mx<=sanTex) {
+                model.removeElementAt(selectedIndex);
+                
+            }
            selectedIndex = -1;
            mx = 0;
            repaint();
@@ -58,14 +67,14 @@ public class ListItems<E extends Object> extends JList<E>{
     }
 
     @Override
-    public ListCellRenderer getCellRenderer() {
+    public ListCellRenderer<? super E> getCellRenderer() {
         return new DefaultListCellRenderer(){
             @Override
             public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 ListSlide slide = new ListSlide(ListItems.this.getFont(),isSelected+ "");
                 if (selectedIndex == index) {
                     if (mx<=sanTex) {
-                         mx = sanTex;
+                        mx = sanTex;
                         
                     }
                     slide.addColor(getClx());
@@ -78,7 +87,7 @@ public class ListItems<E extends Object> extends JList<E>{
         };
     }
     
-    /**
+        /**
      * @return the clx
      */
     public Color getClx() {
@@ -92,4 +101,12 @@ public class ListItems<E extends Object> extends JList<E>{
         this.clx = clx;
     }
 
+    @Override
+    public void setModel(ListModel<E> lmk) {
+       for(int i =0; i<lmk.getSize(); i++){
+          model.addElement(lmk.getElementAt(i));
+       }
+    }
+
+    
 }
