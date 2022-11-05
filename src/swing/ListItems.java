@@ -16,25 +16,12 @@ import javax.swing.ListCellRenderer;
  */
 public class ListItems<E extends Object> extends JList<E>{
 
-    /**
-     * @return the clx
-     */
-    public Color getClx() {
-        return clx;
-    }
-
-    /**
-     * @param clx the clx to set
-     */
-    public void setClx(Color clx) {
-        this.clx = clx;
-    }
 
     private int selectedIndex = -1; 
     private int x;
     private int mx;
     private Color clx;
-    private int modelInt =-50;
+    private final int sanTex =-50;
     
     public ListItems() {
     clx = new Color(130,225,131);
@@ -71,18 +58,19 @@ public class ListItems<E extends Object> extends JList<E>{
     }
 
     @Override
-    public ListCellRenderer<? super E> getCellRenderer() {
+    public ListCellRenderer getCellRenderer() {
         return new DefaultListCellRenderer(){
             @Override
             public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 ListSlide slide = new ListSlide(ListItems.this.getFont(),isSelected+ "");
                 if (selectedIndex == index) {
-                    if (mx<=modelInt) {
-                        mx = modelInt;
+                    if (mx<=sanTex) {
+                         mx = sanTex;
+                        
                     }
                     slide.addColor(getClx());
                     slide.moveX(mx);
-                    slide.setDeleted(mx<=modelInt);
+                    slide.setDeleted(mx<=sanTex);
                 }
                 return slide;
             }
@@ -90,5 +78,18 @@ public class ListItems<E extends Object> extends JList<E>{
         };
     }
     
-    
+    /**
+     * @return the clx
+     */
+    public Color getClx() {
+        return clx;
+    }
+
+    /**
+     * @param clx the clx to set
+     */
+    public void setClx(Color clx) {
+        this.clx = clx;
+    }
+
 }
