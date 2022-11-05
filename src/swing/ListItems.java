@@ -124,7 +124,9 @@ public class ListItems<E extends Object> extends JList<E>{
         if (model.isEmpty()) {
             Graphics2D g2 = (Graphics2D)g;
             g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-            g2.drawImage(img, getWidth()/2 -35, getHeight()/2 -35,50,36, null);
+            g2.drawImage(img, getWidth()/2 -35, getHeight()/2 -35,50,40, null);
+            g2.setColor(Color.blue);
+            g2.drawString("User Mode", getWidth()/2-35, getHeight()/2+15);
             
             
         }
