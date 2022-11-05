@@ -5,11 +5,14 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 import javax.swing.ListModel;
@@ -27,6 +30,8 @@ public class ListItems<E extends Object> extends JList<E>{
     private Color clx;
     private final int sanTex = -50;
     private final DefaultListModel model;
+    
+ 
     
     public ListItems() {
         model = new DefaultListModel();
@@ -109,13 +114,18 @@ public class ListItems<E extends Object> extends JList<E>{
           model.addElement(lmk.getElementAt(i));
        }
     }
-
+    
+    
+   private final Image img = new ImageIcon(getClass().getResource("/image/pic/icon.png")).getImage();
+   
     @Override
     public void paint(Graphics g) {
         super.paint(g); 
         if (model.isEmpty()) {
             Graphics2D g2 = (Graphics2D)g;
-            g2.setRenderingHint(hintKey, WIDTH);
+            g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+            g2.drawImage(img, getWidth()/2 -35, getHeight()/2 -35,50,36, null);
+            
             
         }
     }
