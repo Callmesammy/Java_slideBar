@@ -3,6 +3,8 @@ package swing;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
@@ -106,6 +108,16 @@ public class ListItems<E extends Object> extends JList<E>{
        for(int i =0; i<lmk.getSize(); i++){
           model.addElement(lmk.getElementAt(i));
        }
+    }
+
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g); 
+        if (model.isEmpty()) {
+            Graphics2D g2 = (Graphics2D)g;
+            g2.setRenderingHint(hintKey, WIDTH);
+            
+        }
     }
 
     
