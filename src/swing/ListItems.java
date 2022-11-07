@@ -30,7 +30,7 @@ public class ListItems<E extends Object> extends JList<E>{
     private Color clx;
     private final int sanTex = -50;
     private final DefaultListModel model;
-    private final int intext = 100;
+    private final int intext = 80;
     
  
     

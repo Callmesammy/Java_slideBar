@@ -27,9 +27,13 @@ public class ListSlide extends javax.swing.JPanel {
     
     private Image image;
     private Image imagee;
+    private Image image1;
+    private Image image2;
     
     public ListSlide(Font font, String str) {
         image = new ImageIcon(getClass().getResource("/image/pic/icont.png")).getImage();
+        image1 = new ImageIcon(getClass().getResource("/image/pic/tanku.png")).getImage();
+        image2 = new ImageIcon(getClass().getResource("/image/pic/tanky.png")).getImage();
         imagee = new ImageIcon(getClass().getResource("/image/pic/name.png")).getImage();
         initComponents();
         layout = new MigLayout("fillx", "0[fill]0", "0[]0");
@@ -101,6 +105,9 @@ public class ListSlide extends javax.swing.JPanel {
         g2.setFont(new Font("sansserif", 1,9));
         g2.drawString("Boxer", getWidth() -36, 36);
         }
+        g2.setColor(new Color(0, 146, 205));
+        g2.fillRect(0, 0, 40, getHeight());
+        g2.drawImage(image, xform, this)
        
     }
 
