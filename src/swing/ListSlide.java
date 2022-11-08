@@ -33,7 +33,7 @@ public class ListSlide extends javax.swing.JPanel {
     public ListSlide(Font font, String str) {
         image = new ImageIcon(getClass().getResource("/image/pic/icont.png")).getImage();
         image1 = new ImageIcon(getClass().getResource("/image/pic/tanku.png")).getImage();
-        image2 = new ImageIcon(getClass().getResource("/image/pic/tanky.png")).getImage();
+        image2 = new ImageIcon(getClass().getResource("/image/pic/Save16.gif")).getImage();
         imagee = new ImageIcon(getClass().getResource("/image/pic/name.png")).getImage();
         initComponents();
         layout = new MigLayout("fillx", "0[fill]0", "0[]0");
@@ -94,6 +94,7 @@ public class ListSlide extends javax.swing.JPanel {
         Graphics2D g2 = (Graphics2D)g;
         // for smoot image for the graphics to be added
         g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         if (isDeleted()) {
         g2.drawImage(image, getWidth() -33,7,25,25, this);
         g2.setColor(Color.white);
@@ -109,8 +110,13 @@ public class ListSlide extends javax.swing.JPanel {
         g2.fillRect(0, 0, 40, getHeight());
         g2.drawImage(image1, 7,7,25,20, null);
         g2.setColor(Color.white);
-        g2.drawString("Details", 50, getHeight()-15,22,10,15);
-       
+        g2.drawString("Details", 6, 36);
+        
+        
+        g2.drawImage(image2, 45,7,25,20, null);
+        g2.setColor(Color.white);
+        g2.drawString("Save", 48, 36);
+//       
     }
 
 
