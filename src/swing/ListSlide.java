@@ -107,7 +107,9 @@ public class ListSlide extends javax.swing.JPanel {
         }
         g2.setColor(new Color(0, 146, 205));
         g2.fillRect(0, 0, 40, getHeight());
-        g2.drawImage(image, xform, this)
+        g2.drawImage(image1, 7,7,25,20, null);
+        g2.setColor(Color.white);
+        g2.drawString("Details", 50, getHeight()-15,22,10,15);
        
     }
 
