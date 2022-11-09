@@ -1,4 +1,4 @@
-# Java_slideBar
+# Java_slideBar with MouseMotionListener
 Java
 ![FL1](https://user-images.githubusercontent.com/91014957/200823386-3b88ed20-1574-406a-a0f7-3978dc3b4055.jpg)
 ![FL2](https://user-images.githubusercontent.com/91014957/200823430-e94709b1-a50d-4a04-aad7-618ab0acd813.jpg)
